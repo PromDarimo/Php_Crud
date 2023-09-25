@@ -2,6 +2,8 @@
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
+    // $_SESSION['students'] = [];
+    //for reset data
 }
 
 ini_set('display_errors', '1');
@@ -47,13 +49,13 @@ error_reporting(E_ALL);
                                 foreach ($_SESSION['students'] as $student) {
                                     echo '
                                         <tr>
-                                            <td scope="row">' . $i++ . '</td>
+                                            <td scope="row">' .  $student['id'] . '</td>
                                             <td>' . $student['fullname'] . '</td>
                                             <td>' . $student['gender'] . '</td>
                                             <td>' . $student['address'] . '</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Student Action">
-                                                    <a href="edit_student.php" class="btn btn-default">Edit</a>
+                                                <a href="edit.php?id=' . $student['id'] . '" class="btn btn-default">Edit</a>
                                                     <a href="" class="btn btn-danger">Delete</a>
                                                 </div>
                                             </td>

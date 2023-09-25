@@ -38,6 +38,10 @@ switch ($from) {
                 'address' => $_POST['address']
             ];
         }
+    case 'delete': {
+            unset($_SESSION['students'][$_POST['id']]);
+            break;
+        }
 }
 header('Location: student.php');
 exit();
